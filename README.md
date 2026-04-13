@@ -94,28 +94,6 @@ student-api/
 
 ---
 
-## Monday Talking Points (Explain This to Kunal)
-
-### 1. Why @SpringBootApplication?
-"It's a convenience annotation that combines @Configuration, @EnableAutoConfiguration, and @ComponentScan. It marks this as the entry point and tells Spring Boot to auto-configure everything based on the dependencies in pom.xml."
-
-### 2. Why the layered architecture?
-"I followed the Controller → Service → Repository pattern. The Controller handles HTTP requests and responses. The Service contains all business logic — like checking for duplicate emails before saving. The Repository handles all database operations. Each layer has a single responsibility and is loosely coupled from the others."
-
-### 3. How is Dependency Injection working here?
-"I used Constructor Injection throughout — it's the recommended approach because it ensures the object is fully initialized before use. The StudentController depends on StudentService, and StudentService depends on StudentRepository. Spring's IoC container creates all three as singleton beans and injects them automatically — I never write 'new StudentService()' anywhere."
-
-### 4. Why H2 for the database?
-"H2 is an in-memory database — no installation or configuration needed. It's perfect for development and demos. In a production environment, I'd swap it for MySQL or PostgreSQL just by changing the application.properties datasource URL and adding the driver dependency. The rest of the code doesn't change because JPA abstracts the database."
-
-### 5. What is Spring Data JPA doing?
-"JpaRepository gives me all CRUD operations for free — save, findById, findAll, deleteById — without writing any SQL. Spring Data JPA generates the queries at runtime. I also added custom query methods like findByEmail and findByMajor using Spring Data's method naming convention — Spring automatically generates the SQL from the method name."
-
-### 6. What does the Actuator do?
-"Spring Boot Actuator provides production-ready monitoring endpoints automatically when I add spring-boot-starter-actuator to pom.xml. I can hit /actuator/health to see if the app is up, /actuator/beans to see all registered Spring beans, and /actuator/mappings to see all my REST endpoints."
-
----
-
 ## Key Annotations Used
 
 | Annotation | Layer | Why |

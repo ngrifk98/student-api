@@ -1,0 +1,5 @@
+com\nick\studentapi\repository\StudentRepository.class
+com\nick\studentapi\service\StudentService.class
+com\nick\studentapi\controller\StudentController.class
+com\nick\studentapi\model\Student.class
+com\nick\studentapi\StudentApiApplication.class
